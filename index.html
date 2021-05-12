@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/eb8e34ad26.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container" id="navbar-container">
+            <a href="#" class="logo"><img src="#" alt="Logo"></a>
+            <span class="collapse" id="btn-collapse">
+                <i class="fas fa-bars"></i>
+            </span>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#" class="active">Gallery</a></li>
+                <li><a href="#">Collections</a></li>
+                <li><a href="#">Archives</a></li>
+                <li><a href="#">About Me</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <main>
+            <div class="gallery" id="gallery">
+                <div class="gallery-item">
+                    <img src="img/annie-spratt-ncQ2sguVlgo-unsplash.jpg" alt="">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/brooke-cagle-OKFrsszjK38-unsplash.jpg" alt="">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/claudia-van-zyl-4fAhaPctfC0-unsplash.jpg" alt="">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/claudia-van-zyl-wfd9ZWnbNPk-unsplash.jpg" alt="">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/dusan-jovic-kuWnd0fxuck-unsplash.jpg" alt="">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/dusan-jovic-UoFJMqwg-NE-unsplash.jpg" alt="">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/harry-shelton-x3bS-vszl5Y-unsplash.jpg" alt="">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/jocelyn-hsu-pUSjhgvANXc-unsplash.jpg" alt="">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/joshua-rawson-harris-7mfSzu6_qvA-unsplash.jpg" alt="">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/tenor.png" alt="">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/varun-nambiar-cb8ItZ1O4UY-unsplash.jpg" alt="">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/yannis-papanastasopoulos-yWF2LLan-_o-unsplash.jpg" alt="">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/claudia-van-zyl-gP1EgZxFCd0-unsplash.jpg" alt="">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/joshua-rondeau-GEIv9uwkPDM-unsplash.jpg" alt="">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/joshua-rondeau-nFLrOfZfanU-unsplash.jpg" alt="">
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="legal">
+                <span>&copy; 2021 Company Name</span>
+                <a href="#" style="margin-left: 22px;">Privacy Policy</a>
+            </div>
+            <div class="social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        var btnCollapse = document.getElementById('btn-collapse');
+        var navbarContainer = document.getElementById('navbar-container');
+        var navLinks = document.getElementById('nav-links');
+
+        btnCollapse.addEventListener('click', function (e) {
+            navLinks.classList.toggle('active');
+            navbarContainer.classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>
