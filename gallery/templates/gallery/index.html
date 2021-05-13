@@ -2,51 +2,11 @@
 
 {% block content %}
 <div class="gallery" id="gallery">
+    {% for photo in photos %}
     <div class="gallery-item">
-        <img src="/img/annie-spratt-ncQ2sguVlgo-unsplash.jpg" alt="">
+        <img src="{{ photo.imageUrl }}" alt="">
     </div>
-    <div class="gallery-item">
-        <img src="img/brooke-cagle-OKFrsszjK38-unsplash.jpg" alt="">
-    </div>
-    <div class="gallery-item">
-        <img src="img/claudia-van-zyl-4fAhaPctfC0-unsplash.jpg" alt="">
-    </div>
-    <div class="gallery-item">
-        <img src="img/claudia-van-zyl-wfd9ZWnbNPk-unsplash.jpg" alt="">
-    </div>
-    <div class="gallery-item">
-        <img src="img/dusan-jovic-kuWnd0fxuck-unsplash.jpg" alt="">
-    </div>
-    <div class="gallery-item">
-        <img src="img/dusan-jovic-UoFJMqwg-NE-unsplash.jpg" alt="">
-    </div>
-    <div class="gallery-item">
-        <img src="img/harry-shelton-x3bS-vszl5Y-unsplash.jpg" alt="">
-    </div>
-    <div class="gallery-item">
-        <img src="img/jocelyn-hsu-pUSjhgvANXc-unsplash.jpg" alt="">
-    </div>
-    <div class="gallery-item">
-        <img src="img/joshua-rawson-harris-7mfSzu6_qvA-unsplash.jpg" alt="">
-    </div>
-    <div class="gallery-item">
-        <img src="img/tenor.png" alt="">
-    </div>
-    <div class="gallery-item">
-        <img src="img/varun-nambiar-cb8ItZ1O4UY-unsplash.jpg" alt="">
-    </div>
-    <div class="gallery-item">
-        <img src="img/yannis-papanastasopoulos-yWF2LLan-_o-unsplash.jpg" alt="">
-    </div>
-    <div class="gallery-item">
-        <img src="img/claudia-van-zyl-gP1EgZxFCd0-unsplash.jpg" alt="">
-    </div>
-    <div class="gallery-item">
-        <img src="img/joshua-rondeau-GEIv9uwkPDM-unsplash.jpg" alt="">
-    </div>
-    <div class="gallery-item">
-        <img src="img/joshua-rondeau-nFLrOfZfanU-unsplash.jpg" alt="">
-    </div>
+    {% endfor %}
 </div>
 <button style="margin: 44px auto; display: block;">Load More</button>
 {% endblock %}
