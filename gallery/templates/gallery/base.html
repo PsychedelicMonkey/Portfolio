@@ -30,10 +30,10 @@
                 <i class="fas fa-bars"></i>
             </span>
             <ul class="nav-links" id="nav-links">
-                <li><a href="{% url 'index' %}" class="active">Gallery</a></li>
-                <li><a href="collections.html">Collections</a></li>
-                <li><a href="#">Archives</a></li>
-                <li><a href="about.html">About Me</a></li>
+                <li><a href="{% url 'index' %}"{% if page == 'gallery' %} class="active"{% endif %}>Gallery</a></li>
+                <li><a href="collections.html"{% if page == 'collections' %} class="active"{% endif %}>Collections</a></li>
+                <li><a href="#"{% if page == 'archives' %} class="active"{% endif %}>Archives</a></li>
+                <li><a href="{% url 'about' %}"{% if page == 'about' %} class="active"{% endif %}>About Me</a></li>
             </ul>
         </div>
     </nav>
