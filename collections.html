@@ -153,6 +153,13 @@
             navLinks.classList.toggle('active');
             navbarContainer.classList.toggle('active');
         });
+
+        var collections = document.querySelectorAll('.collection');
+        collections.forEach(collection => {
+            collection.addEventListener('click', function(e) {
+                window.location = 'collection.html';
+            });
+        });
     </script>
 </body>
 
