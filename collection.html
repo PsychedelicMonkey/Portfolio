@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/eb8e34ad26.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="profile.css">
+    <style>
+        .wrapper {
+            margin: 12px auto 44px;
+            padding-bottom: 22px;
+            border-bottom: 1px solid var(--grey2);
+        }
+
+        .title {
+            font-size: 28pt;
+            text-align: center;
+        }
+
+        .subtitle {
+            margin-top: 8px;
+            color: var(--secondary);
+            font-family: 'Montserrat', sans-serif;
+            text-shadow: none;
+        }
+
+        .info p {
+            color: var(--grey2);
+            font-weight: 600;
+            font-size: 18pt;
+        }
+
+        .info p strong {
+            color: var(--main);
+            margin-right: 4px;
+        }
+
+        @media (max-width: 900px) {
+            #back-btn {
+                display: block;
+                margin: 22px auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container" id="navbar-container">
+            <a href="#" class="logo"><img src="#" alt="Logo"></a>
+            <span class="collapse" id="btn-collapse">
+                <i class="fas fa-bars"></i>
+            </span>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Gallery</a></li>
+                <li><a href="collections.html" class="active">Collections</a></li>
+                <li><a href="#">Archives</a></li>
+                <li><a href="about.html">About Me</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <main>
+            <button id="back-btn">Back to Collections</button>
+            <article class="wrapper">
+                <h1 class="title">Collection Name</h1>
+                <h3 class="subtitle">Created: March 14, 2021</h3>
+                <div class="desc">
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est nisi veritatis, hic fugit omnis incidunt ratione temporibus minus soluta maxime repellendus id excepturi ipsam possimus minima qui quae! Harum, mollitia.
+                    Cumque architecto vitae porro quo? Cum iure blanditiis atque reprehenderit consequuntur porro ipsa aperiam delectus molestias eveniet! Aut dignissimos accusamus illo facere est recusandae, itaque maxime cumque eos? Sint, beatae.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam provident sequi repudiandae minus rerum enim, deserunt architecto fugiat! Molestias consequuntur dolor eum? Modi nihil quaerat minima doloribus consequatur aperiam obcaecati.</p>
+                </div>
+                <div class="info">
+                    <p><strong>3</strong> Photos</p>
+                </div>
+            </article>
+
+            <div class="gallery" id="gallery">
+                <div class="gallery-item">
+                    <img src="img/chris-zhang-uGh-hHVPRYI-unsplash.jpg" alt="">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/kyle-ashton-fKwaa6VdG_Y-unsplash.jpg" alt="">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/kyle-ashton-ZgjlBP_mDjQ-unsplash.jpg" alt="">
+                </div>
+            </div>
+            <button style="margin: 44px auto; display: block;">Load More</button>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="legal">
+                <span>&copy; 2021 Company Name</span>
+                <a href="#" style="margin-left: 22px;">Privacy Policy</a>
+            </div>
+            <div class="social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        var btnCollapse = document.getElementById('btn-collapse');
+        var navbarContainer = document.getElementById('navbar-container');
+        var navLinks = document.getElementById('nav-links');
+
+        btnCollapse.addEventListener('click', function (e) {
+            navLinks.classList.toggle('active');
+            navbarContainer.classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>
