@@ -49,6 +49,15 @@
 </head>
 
 <body>
+    <div id="viewer" class="viewer">
+        <span id=viewer-close>&Cross;</span>
+        <i id="left-btn" class="viewer-btn fas fa-chevron-left"></i>
+        <i id="right-btn" class="viewer-btn fas fa-chevron-right"></i>
+        <div class="viewer-wrapper">
+            <img src="img/claudia-van-zyl-4fAhaPctfC0-unsplash.jpg" alt="">
+        </div>
+    </div>
+
     <nav class="navbar">
         <div class="container" id="navbar-container">
             <a href="#" class="logo"><img src="#" alt="Logo"></a>
@@ -64,7 +73,7 @@
         </div>
     </nav>
 
-    <div class="container">
+    <div id="main-container" class="container" style="background-color: rgba(115, 112, 121, 0.25);">
         <main>
             <button id="back-btn">Back to Collections</button>
             <article class="wrapper">
@@ -115,6 +124,10 @@
         var btnCollapse = document.getElementById('btn-collapse');
         var navbarContainer = document.getElementById('navbar-container');
         var navLinks = document.getElementById('nav-links');
+        var mainContainer = document.getElementById('main-container');
+        var viewer = document.getElementById('viewer');
+        var viewerClose = document.getElementById('viewer-close');
+        var gallery = document.getElementById('gallery');
 
         btnCollapse.addEventListener('click', function (e) {
             navLinks.classList.toggle('active');
@@ -123,6 +136,20 @@
 
         document.getElementById('back-btn').addEventListener('click', function(e) {
             window.location = 'collections.html';
+        });
+
+        viewerClose.addEventListener('click', function(e) {
+            viewer.style.display = 'none';
+            mainContainer.classList.remove('blur');
+            navbarContainer.classList.remove('blur');
+        });
+
+        gallery.childNodes.forEach(photo => {
+            photo.addEventListener('click', function(e) {
+                viewer.style.display = 'block';
+                mainContainer.classList.add('blur');
+            navbarContainer.classList.add('blur');
+            });
         });
     </script>
 </body>
