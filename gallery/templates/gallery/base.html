@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/eb8e34ad26.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    {% if title %}
+    <title>{{ title }} | Portfolio</title>
+    {% else %}
+    <title>Portfolio</title>
+    {% endif %}
+</head>
+<body>
+    <div id="viewer" class="viewer">
+        <span id=viewer-close>&Cross;</span>
+        <i id="left-btn" class="viewer-btn fas fa-chevron-left"></i>
+        <i id="right-btn" class="viewer-btn fas fa-chevron-right"></i>
+        <div class="viewer-wrapper">
+            <img src="img/claudia-van-zyl-4fAhaPctfC0-unsplash.jpg" alt="">
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container" id="navbar-container">
+            <a href="{% url 'index' %}" class="logo"><img src="#" alt="Logo"></a>
+            <span class="collapse" id="btn-collapse">
+                <i class="fas fa-bars"></i>
+            </span>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="{% url 'index' %}" class="active">Gallery</a></li>
+                <li><a href="collections.html">Collections</a></li>
+                <li><a href="#">Archives</a></li>
+                <li><a href="about.html">About Me</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="main-container" class="container">
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="legal">
+                <span>&copy; {% now "Y" %} Company Name</span>
+                <a href="#" style="margin-left: 22px;">Privacy Policy</a>
+            </div>
+            <div class="social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        var btnCollapse = document.getElementById('btn-collapse');
+        var navbarContainer = document.getElementById('navbar-container');
+        var navLinks = document.getElementById('nav-links');
+        var mainContainer = document.getElementById('main-container');
+        var viewer = document.getElementById('viewer');
+        var viewerClose = document.getElementById('viewer-close');
+        var gallery = document.getElementById('gallery');
+
+        btnCollapse.addEventListener('click', function (e) {
+            navLinks.classList.toggle('active');
+            navbarContainer.classList.toggle('active');
+        });
+
+        viewerClose.addEventListener('click', function(e) {
+            viewer.style.display = 'none';
+            mainContainer.classList.remove('blur');
+            navbarContainer.classList.remove('blur');
+        });
+
+        gallery.childNodes.forEach(photo => {
+            photo.addEventListener('click', function(e) {
+                viewer.style.display = 'block';
+                mainContainer.classList.add('blur');
+            navbarContainer.classList.add('blur');
+            });
+        });
+    </script>
+</body>
+</html>
