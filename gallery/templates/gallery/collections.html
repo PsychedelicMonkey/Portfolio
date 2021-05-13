@@ -1,0 +1,36 @@
+{% extends "gallery/base.html" %}
+
+{% block content %}
+<h1 class="title">Collections</h1>
+<div class="collection-wrapper">
+    {% for collection in collections %}
+    <div class="collection" data-url="{% url 'collection-detail' collection.pk %}">
+        <h2 class="collection-title">{{ collection.title }}</h2>
+        <div class="images">
+            {% for photo in collection.photos.all %}
+            <div style="background-image: url({{ photo.imageUrl }});"></div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<button style="margin: 44px auto; display: block;">Load More</button>
+
+<script>
+    var btnCollapse = document.getElementById('btn-collapse');
+    var navbarContainer = document.getElementById('navbar-container');
+    var navLinks = document.getElementById('nav-links');
+
+    btnCollapse.addEventListener('click', function (e) {
+        navLinks.classList.toggle('active');
+        navbarContainer.classList.toggle('active');
+    });
+
+    var collections = document.querySelectorAll('.collection');
+    collections.forEach(collection => {
+        collection.addEventListener('click', function (e) {
+            window.location = this.dataset.url;
+        });
+    });
+</script>
+{% endblock %}

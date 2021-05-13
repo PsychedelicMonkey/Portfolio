@@ -1,0 +1,97 @@
+{% extends "gallery/base.html" %}
+
+{% block styles %}
+<style>
+    .wrapper {
+        margin: 12px auto 44px;
+        padding-bottom: 22px;
+        border-bottom: 1px solid var(--grey2);
+    }
+
+    .title {
+        font-size: 28pt;
+        text-align: center;
+    }
+
+    .subtitle {
+        margin-top: 8px;
+        color: var(--secondary);
+        font-family: 'Montserrat', sans-serif;
+        text-shadow: none;
+    }
+
+    .info p {
+        color: var(--grey2);
+        font-weight: 600;
+        font-size: 18pt;
+    }
+
+    .info p strong {
+        color: var(--main);
+        margin-right: 4px;
+    }
+
+    @media (max-width: 900px) {
+        #back-btn {
+            display: block;
+            margin: 22px auto;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<button id="back-btn">Back to Collections</button>
+<article class="wrapper">
+    <h1 class="title">{{ object.title }}</h1>
+    <h3 class="subtitle">Created: {{ object.created|date:"F d, Y" }}</h3>
+    <div class="desc">
+        {{ object.description|linebreaks }}
+    </div>
+    <div class="info">
+        <p><strong>{{ object.photos.all.count }}</strong> Photos</p>
+    </div>
+</article>
+
+<div class="gallery" id="gallery">
+    {% for photo in object.photos.all %}
+    <div class="gallery-item">
+        <img src="{{ photo.imageUrl }}" alt="">
+    </div>
+    {% endfor %}
+</div>
+<button style="margin: 44px auto; display: block;">Load More</button>
+
+<script>
+    var btnCollapse = document.getElementById('btn-collapse');
+    var navbarContainer = document.getElementById('navbar-container');
+    var navLinks = document.getElementById('nav-links');
+    var mainContainer = document.getElementById('main-container');
+    var viewer = document.getElementById('viewer');
+    var viewerClose = document.getElementById('viewer-close');
+    var gallery = document.getElementById('gallery');
+
+    btnCollapse.addEventListener('click', function (e) {
+        navLinks.classList.toggle('active');
+        navbarContainer.classList.toggle('active');
+    });
+
+    document.getElementById('back-btn').addEventListener('click', function (e) {
+        window.location = "{% url 'collections' %}";
+    });
+
+    viewerClose.addEventListener('click', function (e) {
+        viewer.style.display = 'none';
+        mainContainer.classList.remove('blur');
+        navbarContainer.classList.remove('blur');
+    });
+
+    gallery.childNodes.forEach(photo => {
+        photo.addEventListener('click', function (e) {
+            viewer.style.display = 'block';
+            mainContainer.classList.add('blur');
+            navbarContainer.classList.add('blur');
+        });
+    });
+</script>
+{% endblock %}

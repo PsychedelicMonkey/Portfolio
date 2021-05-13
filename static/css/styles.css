@@ -467,3 +467,58 @@ button:hover {
         margin-left: unset;
     }
 }
+
+.collection-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 44px;
+    border-top: 1px solid var(--grey1);
+    padding-top: 44px;
+}
+
+@media (max-width: 900px) {
+    .collection-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 400px) {
+    .collection-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+.collection {
+    cursor: pointer;
+    transition: 0.3s ease 0s;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
+}
+
+.collection:hover {
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.75);
+}
+
+.collection-title {
+    margin: 22px;
+    font-size: 22pt;
+    text-align: center;
+}
+
+.collection .images {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.collection .images div {
+    width: auto;
+    height: 120px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.title {
+    font-size: 28pt;
+    text-align: center;
+}

@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/eb8e34ad26.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    {% block styles %}{% endblock %}
     {% if title %}
     <title>{{ title }} | Portfolio</title>
     {% else %}
@@ -31,7 +32,7 @@
             </span>
             <ul class="nav-links" id="nav-links">
                 <li><a href="{% url 'index' %}"{% if page == 'gallery' %} class="active"{% endif %}>Gallery</a></li>
-                <li><a href="collections.html"{% if page == 'collections' %} class="active"{% endif %}>Collections</a></li>
+                <li><a href="{% url 'collections' %}"{% if page == 'collections' %} class="active"{% endif %}>Collections</a></li>
                 <li><a href="#"{% if page == 'archives' %} class="active"{% endif %}>Archives</a></li>
                 <li><a href="{% url 'about' %}"{% if page == 'about' %} class="active"{% endif %}>About Me</a></li>
             </ul>
