@@ -44,11 +44,16 @@
     margin-top: 22px;
     padding-top: 26px;
     border-top: 1px solid var(--grey1);
+    text-shadow: 4px 3px 5px rgb(0, 0, 0);
 }
 
-.heading {
-    font-size: 18pt;
-    margin-bottom: 14px;
+.social {
+    text-shadow: none;
+}
+
+h2.heading {
+    font-size: 25pt;
+    margin-bottom: 32px;
 }
 
 .social-wrapper i {
@@ -61,4 +66,82 @@
         font-size: 22pt;
         padding: unset;
     }   
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 62%;
+    margin: 12px auto 14px;
+}
+
+.form-field {
+    width: 100%;
+}
+
+.form-field input, .form-field textarea, input[type=submit], button {
+    width: 100%;
+    margin: 8px auto;
+    padding: 16px 14px;
+    background-color: #222;
+    color: var(--main);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12pt;
+    border: 0;
+}
+
+.form-field input:focus, .form-field textarea:focus {
+    outline-color: var(--form-submit);
+    outline-style: solid;
+    outline-width: thin;
+}
+
+.form-field.half {
+    width: calc(50% - 8px);
+}
+
+.form-actions input[type=submit], button {
+    width: unset;
+    border: none;
+    margin: 12px 0;
+    padding: 16px 44px;
+    cursor: pointer;
+    background-color: var(--form-submit);
+    transition: 0.3s ease 0s;
+}
+
+.form-actions input[type=submit]:hover, button {
+    background-color: var(--form-submit-hover);
+}
+
+.form-actions button {
+    margin-left: 8px;
+    border: 1px solid var(--grey2);
+    background: transparent;
+}
+
+.form-actions button:hover {
+    color: var(--form-submit);
+    border: 1px solid var(--form-submit-hover);
+}
+
+@media (max-width: 900px) {
+    form {
+        width: 86%;
+    }
+}
+
+@media (max-width: 400px) {
+    form {
+        width: 86%;
+    }
+
+    .form-field.half {
+        width: 100%;
+    }
+
+    .form-actions button {
+        margin-left: unset;
+    }
 }

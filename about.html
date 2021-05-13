@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="social-wrapper">
-                    <h3 class="heading">Follow me on...</h3>
+                    <h2 class="heading">Follow me on...</h2>
                     <div class="social">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -54,13 +54,24 @@
                 </div>
 
                 <div class="form-wrapper">
-                    <h3 class="heading">Get in touch</h3>
+                    <h2 class="heading">Get in touch</h2>
                     <form action="#" method="post">
-                        <input type="text" name="name" id="" placeholder="Full Name">
-                        <input type="email" name="email" id="" placeholder="Email Address">
-                        <input type="text" name="subject" id="" placeholder="Subject">
-                        <input type="text" name="message" id="" placeholder="Message">
-                        <input type="submit" name="submit" value="Submit">
+                        <div class="form-field half">
+                            <input type="text" name="name" id="name" placeholder="Full Name">
+                        </div>
+                        <div class="form-field half">
+                            <input type="email" name="email" id="email" placeholder="Email Address">
+                        </div>
+                        <div class="form-field">
+                            <input type="text" name="subject" id="subject" placeholder="Subject">
+                        </div>
+                        <div class="form-field">
+                            <textarea name="message" id="message" rows="5" placeholder="Message"></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <input type="submit" name="submit" value="Submit">
+                            <button id="btn-clear-form">Clear</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -91,6 +102,18 @@
         btnCollapse.addEventListener('click', function (e) {
             navLinks.classList.toggle('active');
             navbarContainer.classList.toggle('active');
+        });
+        
+        // Form
+        var clearBtn = document.getElementById('btn-clear-form');
+        
+        clearBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            document.getElementById('name').value = "";
+            document.getElementById('email').value = "";
+            document.getElementById('subject').value = "";
+            document.getElementById('message').value = "";
         });
     </script>
 </body>
