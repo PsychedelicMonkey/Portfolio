@@ -11,6 +11,7 @@
     --grey1: #574C53;
     --grey2: #737079;
     --background-color: #18161a;
+    --form-input-background: #222;
     --form-submit: #00b89f;
     --form-submit-hover: #01d1b5;
 }
@@ -24,6 +25,7 @@
 h1, h2, h3, h4, h5, h6 {
     color: var(--main);
     font-family: 'Open Sans', sans-serif;
+    text-shadow: 4px 3px 5px rgb(0, 0, 0);
 }
 
 p, a, li, span {

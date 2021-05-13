@@ -84,7 +84,7 @@ form {
     width: 100%;
     margin: 8px auto;
     padding: 16px 14px;
-    background-color: #222;
+    background-color: var(--form-input-background);
     color: var(--main);
     font-family: 'Montserrat', sans-serif;
     font-size: 12pt;
@@ -115,13 +115,13 @@ form {
     background-color: var(--form-submit-hover);
 }
 
-.form-actions button {
+button {
     margin-left: 8px;
     border: 1px solid var(--grey2);
     background: transparent;
 }
 
-.form-actions button:hover {
+button:hover {
     color: var(--form-submit);
     border: 1px solid var(--form-submit-hover);
 }
