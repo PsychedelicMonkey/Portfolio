@@ -17,16 +17,8 @@
 <button style="margin: 44px auto; display: block;">Load More</button>
 
 <script>
-    var btnCollapse = document.getElementById('btn-collapse');
-    var navbarContainer = document.getElementById('navbar-container');
-    var navLinks = document.getElementById('nav-links');
-
-    btnCollapse.addEventListener('click', function (e) {
-        navLinks.classList.toggle('active');
-        navbarContainer.classList.toggle('active');
-    });
-
     var collections = document.querySelectorAll('.collection');
+    
     collections.forEach(collection => {
         collection.addEventListener('click', function (e) {
             window.location = this.dataset.url;

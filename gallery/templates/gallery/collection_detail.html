@@ -63,35 +63,10 @@
 <button style="margin: 44px auto; display: block;">Load More</button>
 
 <script>
-    var btnCollapse = document.getElementById('btn-collapse');
-    var navbarContainer = document.getElementById('navbar-container');
-    var navLinks = document.getElementById('nav-links');
-    var mainContainer = document.getElementById('main-container');
-    var viewer = document.getElementById('viewer');
-    var viewerClose = document.getElementById('viewer-close');
-    var gallery = document.getElementById('gallery');
-
-    btnCollapse.addEventListener('click', function (e) {
-        navLinks.classList.toggle('active');
-        navbarContainer.classList.toggle('active');
-    });
-
-    document.getElementById('back-btn').addEventListener('click', function (e) {
+    var backBtn = document.getElementById('back-btn');
+    
+    backBtn.addEventListener('click', function (e) {
         window.location = "{% url 'collections' %}";
-    });
-
-    viewerClose.addEventListener('click', function (e) {
-        viewer.style.display = 'none';
-        mainContainer.classList.remove('blur');
-        navbarContainer.classList.remove('blur');
-    });
-
-    gallery.childNodes.forEach(photo => {
-        photo.addEventListener('click', function (e) {
-            viewer.style.display = 'block';
-            mainContainer.classList.add('blur');
-            navbarContainer.classList.add('blur');
-        });
     });
 </script>
 {% endblock %}

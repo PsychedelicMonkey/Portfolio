@@ -459,6 +459,10 @@ button:hover {
         width: 86%;
     }
 
+    .form-actions input[type=submit], button {
+        width: 100%;
+    }
+
     .form-field.half {
         width: 100%;
     }
