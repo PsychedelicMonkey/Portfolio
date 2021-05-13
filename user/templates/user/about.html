@@ -2,16 +2,11 @@
 
 {% block content %}
 <div class="wrapper">
-    <img class="profile-image" src="img/siri-louis-1uJer_oGxeE-unsplash.jpg" alt="">
-    <h1 class="profile-name">John Doe</h1>
+    <img class="profile-image" src="{{ user.profile.imageUrl }}" alt="">
+    <h1 class="profile-name">{{ user.first_name }} {{ user.last_name }}</h1>
 
     <div class="desc">
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima harum nulla cum doloribus odit. Accusantium magnam voluptatibus rem corrupti laborum qui id facilis illum eaque commodi numquam, temporibus inventore explicabo?
-        Facere distinctio porro eos illo natus neque magnam aliquid consequuntur voluptatem, temporibus veritatis praesentium doloribus est. Dolor accusamus mollitia porro hic veniam architecto. Sunt ut odit consectetur blanditiis magnam quidem.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed alias dignissimos dolorem aut consequatur dolores debitis consequuntur dicta. Quidem quam maiores explicabo, quia necessitatibus exercitationem magnam ex excepturi nobis sit!
-        Quo voluptatibus, repellat illo quibusdam quidem alias facere autem! Assumenda in sit doloremque laborum explicabo ipsum dignissimos quibusdam ad necessitatibus fugiat debitis voluptas, nam accusamus voluptatum quos delectus tempora magnam.
-        Assumenda animi ea deserunt, aliquid veniam ad rerum voluptatibus quis. Ratione excepturi rem laborum tenetur voluptatum incidunt sed alias nisi mollitia provident? Repudiandae quod eius libero nulla, modi nam voluptatem!
-        Dolorum pariatur totam, id eos dolorem at cumque consectetur culpa numquam odio eveniet ipsa quas maiores quasi itaque nulla recusandae magnam consequatur, ab unde nesciunt vel, voluptatem iste. Ea, natus.</p>
+        {{ user.profile.biography|linebreaks }}
     </div>
 
     <div class="social-wrapper">
