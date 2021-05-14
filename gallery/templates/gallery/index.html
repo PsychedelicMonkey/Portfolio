@@ -3,7 +3,7 @@
 {% block content %}
 <div class="gallery" id="gallery">
     {% for photo in photos %}
-    <div class="gallery-item">
+    <div class="gallery-item" data-url="{% url 'viewer' photo.pk %}">
         <img src="{{ photo.imageUrl }}" alt="">
     </div>
     {% endfor %}

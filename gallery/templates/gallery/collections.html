@@ -4,13 +4,9 @@
 <h1 class="title">Collections</h1>
 <div class="collection-wrapper">
     {% for collection in collections %}
-    <div class="collection" data-url="{% url 'collection-detail' collection.pk %}">
+    <div class="collection" data-url="{% url 'collection-detail' collection.pk %}" data-icons="{% url 'collection-preview' collection.pk %}">
         <h2 class="collection-title">{{ collection.title }}</h2>
-        <div class="images">
-            {% for photo in collection.photos.all %}
-            <div style="background-image: url({{ photo.imageUrl }});"></div>
-            {% endfor %}
-        </div>
+        <div class="images"></div>
     </div>
     {% endfor %}
 </div>
@@ -20,9 +16,23 @@
     var collections = document.querySelectorAll('.collection');
     
     collections.forEach(collection => {
+        var images = collection.childNodes[3];
+
+        fetch(collection.dataset.icons)
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(img => {
+                var icon = document.createElement('div');
+                icon.style.backgroundImage = 'url(' + img.url + ')';
+                images.appendChild(icon);
+            });
+        });
+
         collection.addEventListener('click', function (e) {
             window.location = this.dataset.url;
         });
     });
+
+    
 </script>
 {% endblock %}

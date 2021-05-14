@@ -15,14 +15,7 @@
     {% endif %}
 </head>
 <body>
-    <div id="viewer" class="viewer">
-        <span id=viewer-close>&Cross;</span>
-        <i id="left-btn" class="viewer-btn fas fa-chevron-left"></i>
-        <i id="right-btn" class="viewer-btn fas fa-chevron-right"></i>
-        <div class="viewer-wrapper">
-            <img src="img/claudia-van-zyl-4fAhaPctfC0-unsplash.jpg" alt="">
-        </div>
-    </div>
+    {% include "gallery/viewer.html" %}
 
     <nav class="navbar">
         <div class="container" id="navbar-container">
