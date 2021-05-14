@@ -1,3 +1,6 @@
+from django.conf import settings
+from django.core import paginator
+from django.core.paginator import Paginator
 from django.http.response import JsonResponse
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
@@ -17,6 +20,7 @@ class Gallery(ListView):
     ordering = ['-created']
     template_name = 'gallery/index.html'
     context_object_name = 'photos'
+    paginate_by = settings.ITEMS_PER_PAGE
     extra_context = {
         'title': 'Gallery',
         'page': 'gallery',
@@ -27,6 +31,7 @@ class CollectionListView(ListView):
     ordering = ['-created']
     template_name = 'gallery/collections.html'
     context_object_name = 'collections'
+    paginate_by = settings.ITEMS_PER_PAGE
     extra_context = {
         'title': 'Collections',
         'page': 'collections',
@@ -39,3 +44,12 @@ class CollectionListView(ListView):
 class CollectionDetailView(DetailView):
     model = Collection
     template_name = 'gallery/collection_detail.html'
+
+    def get_context_data(self, **kwargs):
+        photos = self.get_object().get_photos()
+        paginator = Paginator(photos, settings.ITEMS_PER_PAGE)
+        page = self.request.GET.get('page')
+        page_obj = paginator.get_page(page)
+        context = super().get_context_data(**kwargs)
+        context['page_obj'] = page_obj
+        return context

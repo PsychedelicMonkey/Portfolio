@@ -38,7 +38,7 @@ a {
     transition: 0.3s ease 0s;
 }
 
-a:hover {
+a:not(.button):hover {
     padding-bottom: 8px;
     border-bottom: 1px solid var(--secondary);
 }
@@ -402,7 +402,7 @@ form {
     width: 100%;
 }
 
-.form-field input, .form-field textarea, input[type=submit], button {
+.form-field input, .form-field textarea, input[type=submit], button, .button {
     width: 100%;
     margin: 8px auto;
     padding: 16px 14px;
@@ -423,7 +423,7 @@ form {
     width: calc(50% - 8px);
 }
 
-.form-actions input[type=submit], button {
+.form-actions input[type=submit], button, .button {
     width: unset;
     border: none;
     margin: 12px 0;
@@ -433,17 +433,17 @@ form {
     transition: 0.3s ease 0s;
 }
 
-.form-actions input[type=submit]:hover, button {
+.form-actions input[type=submit]:hover, button, .button {
     background-color: var(--form-submit-hover);
 }
 
-button {
+button, .button {
     margin-left: 8px;
     border: 1px solid var(--grey2);
     background: transparent;
 }
 
-button:hover {
+button:hover, .button:hover {
     color: var(--form-submit);
     border: 1px solid var(--form-submit-hover);
 }
@@ -525,4 +525,31 @@ button:hover {
 .title {
     font-size: 28pt;
     text-align: center;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 26px;
+}
+
+#paginate-left {
+    margin-right: auto;
+}
+
+#paginate-right {
+    margin-left: auto;
+}
+
+@media (max-width: 400px) {
+    .pagination {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #paginate-left, #paginate-right {
+        margin-left: unset;
+        margin-right: unset;
+    }
 }

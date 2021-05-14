@@ -54,13 +54,13 @@
 </article>
 
 <div class="gallery" id="gallery">
-    {% for photo in object.photos.all %}
+    {% for photo in page_obj %}
     <div class="gallery-item" data-url="{% url 'viewer' photo.pk %}">
         <img src="{{ photo.imageUrl }}" alt="">
     </div>
     {% endfor %}
 </div>
-<button style="margin: 44px auto; display: block;">Load More</button>
+{% include "gallery/pagination.html" %}
 
 <script>
     var backBtn = document.getElementById('back-btn');
