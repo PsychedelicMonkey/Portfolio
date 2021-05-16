@@ -77,3 +77,10 @@ rightBtn.addEventListener('click', function(e) {
     if (this.dataset.nexturl)
         loadViewer(this.dataset.nexturl);
 });
+
+window.onclick = function(e) {
+    if (e.target == viewer) {
+        viewer.style.display = 'none';
+        removeBlur();
+    }
+}
