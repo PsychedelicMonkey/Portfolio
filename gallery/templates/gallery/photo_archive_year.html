@@ -1,0 +1,17 @@
+{% extends "gallery/base.html" %}
+
+{% block content %}
+{% for date in date_list %}
+<h2 class="title" style="border-bottom: 1px solid var(--grey1); padding-bottom: 22px;">{{ date|date:"M Y" }}</h2>
+{% endfor %}
+
+<div class="gallery" id="gallery">
+    {% for photo in page_obj %}
+    <div class="gallery-item" data-url="{% url 'viewer' photo.pk %}">
+        <img src="{{ photo.imageUrl }}" alt="">
+    </div>
+    {% endfor %}
+</div>
+
+{% include "gallery/pagination.html" %}
+{% endblock %}

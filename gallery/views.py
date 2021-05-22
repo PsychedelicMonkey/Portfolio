@@ -4,6 +4,7 @@ from django.core.paginator import Paginator
 from django.http.response import JsonResponse
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
+from django.views.generic.dates import YearArchiveView, MonthArchiveView
 from .models import Photo, Collection
 
 def viewer(request, pk):
@@ -53,3 +54,20 @@ class CollectionDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['page_obj'] = page_obj
         return context
+
+class ArchiveYear(YearArchiveView):
+    queryset = Photo.objects.all()
+    paginate_by = settings.ITEMS_PER_PAGE
+    date_field = 'created'
+    make_object_list = True
+    allow_future = True
+
+class ArchiveMonth(MonthArchiveView):
+    queryset = Photo.objects.all()
+    paginate_by = settings.ITEMS_PER_PAGE
+    date_field = 'created'
+    make_object_list = True
+    allow_future = True
+    extra_context = {
+        'page': 'archives'
+    }
