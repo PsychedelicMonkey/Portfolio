@@ -26,7 +26,7 @@
             <ul class="nav-links" id="nav-links">
                 <li><a href="{% url 'index' %}"{% if page == 'gallery' %} class="active"{% endif %}>Gallery</a></li>
                 <li><a href="{% url 'collections' %}"{% if page == 'collections' %} class="active"{% endif %}>Collections</a></li>
-                <li><a href="#"{% if page == 'archives' %} class="active"{% endif %}>Archives</a></li>
+                <li><a href="{% url 'archive' %}"{% if page == 'archives' %} class="active"{% endif %}>Archives</a></li>
                 <li><a href="{% url 'about' %}"{% if page == 'about' %} class="active"{% endif %}>About Me</a></li>
             </ul>
         </div>

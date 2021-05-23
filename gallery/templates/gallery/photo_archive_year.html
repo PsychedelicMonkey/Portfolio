@@ -3,9 +3,9 @@
 {% block content %}
 <button id="back-btn">Back to Archive</button>
 <h2 class="title">{{ year|date:"Y" }}</h2>
-<ul style="margin-top: 22px; border-bottom: 1px solid var(--grey1); padding-bottom: 22px;">
+<ul class="archive-list">
     {% for date in date_list %}
-    <li style="display: inline-block; margin-right: 8px;"><a href="{% url 'archive-month' date|date:'Y' date|date:'M' %}">{{ date|date:"M Y" }}</a></li>
+    <li><a href="{% url 'archive-month' date|date:'Y' date|date:'M' %}">{{ date|date:"M Y" }}</a></li>
     {% endfor %}
 </ul>
 
@@ -23,7 +23,7 @@
     var backBtn = document.getElementById('back-btn');
 
     backBtn.addEventListener('click', function(e) {
-        console.log('back');
+        window.location = "{% url 'archive' %}";
     });
 </script>
 {% endblock %}

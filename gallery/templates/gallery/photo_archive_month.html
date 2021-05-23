@@ -1,6 +1,7 @@
 {% extends "gallery/base.html" %}
 
 {% block content %}
+<button id="back-btn">Back to {{ month|date:"Y" }}</button>
 <h2 class="title" style="border-bottom: 1px solid var(--grey1); padding-bottom: 22px;">{{ month|date:"F Y" }}</h2>
 
 <div class="gallery" id="gallery">
@@ -10,4 +11,12 @@
     </div>
     {% endfor %}
 </div>
+
+<script>
+    var backBtn = document.getElementById('back-btn');
+
+    backBtn.addEventListener('click', function(e) {
+        window.location = "{% url 'archive-year' month|date:'Y' %}";
+    });
+</script>
 {% endblock %}

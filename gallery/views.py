@@ -4,7 +4,7 @@ from django.core.paginator import Paginator
 from django.http.response import JsonResponse
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
-from django.views.generic.dates import YearArchiveView, MonthArchiveView
+from django.views.generic.dates import YearArchiveView, MonthArchiveView, ArchiveIndexView
 from .models import Photo, Collection
 
 def viewer(request, pk):
@@ -14,6 +14,11 @@ def viewer(request, pk):
 def collection_preview(request, pk):
     collection = get_object_or_404(Collection, pk=pk)
     photos = collection.photos.all()[:4]
+    return JsonResponse([{'url': photo.imageUrl} for photo in photos], safe=False)
+
+def archive_preview(request, year):
+    archive = Photo.objects.filter(created__year=year)
+    photos = archive.all()[:4]
     return JsonResponse([{'url': photo.imageUrl} for photo in photos], safe=False)
 
 class Gallery(ListView):
@@ -54,6 +59,13 @@ class CollectionDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['page_obj'] = page_obj
         return context
+
+class ArchiveIndex(ArchiveIndexView):
+    model = Photo
+    date_field = 'created'
+    extra_context = {
+        'page': 'archives'
+    }
 
 class ArchiveYear(YearArchiveView):
     queryset = Photo.objects.all()
