@@ -57,6 +57,12 @@
             navLinks.classList.toggle('active');
             navbarContainer.classList.toggle('active');
         });
+        
+        {% if messages %}
+            {% for message in messages %}
+            alert("{{ message }}");
+            {% endfor %}
+        {% endif %}
     </script>
     <script src="{% static 'js/viewer.js' %}"></script>
 </body>

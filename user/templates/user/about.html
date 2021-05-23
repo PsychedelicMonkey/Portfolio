@@ -17,17 +17,19 @@
     <div class="form-wrapper">
         <h2 class="heading">Get in touch</h2>
         <form action="#" method="post">
+            {% csrf_token %}
+
             <div class="form-field half">
-                <input type="text" name="name" id="name" placeholder="Full Name">
+                {{ form.full_name }}
             </div>
             <div class="form-field half">
-                <input type="email" name="email" id="email" placeholder="Email Address">
+                {{ form.email }}
             </div>
             <div class="form-field">
-                <input type="text" name="subject" id="subject" placeholder="Subject">
+                {{ form.subject }}
             </div>
             <div class="form-field">
-                <textarea name="message" id="message" rows="5" placeholder="Message"></textarea>
+                {{ form.body }}
             </div>
             <div class="form-actions">
                 <input type="submit" name="submit" value="Submit">
@@ -36,4 +38,16 @@
         </form>
     </div>
 </div>
+
+<script>
+    var clearBtn = document.getElementById('btn-clear-form');
+
+    clearBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('subject').value = '';
+        document.getElementById('message').value = '';
+    });
+</script>
 {% endblock %}
