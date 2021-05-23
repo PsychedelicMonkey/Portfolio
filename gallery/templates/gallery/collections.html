@@ -1,4 +1,5 @@
 {% extends "gallery/base.html" %}
+{% load static %}
 
 {% block content %}
 <h1 class="title">Collections</h1>
@@ -12,27 +13,5 @@
 </div>
 {% include "gallery/pagination.html" %}
 
-<script>
-    var collections = document.querySelectorAll('.collection');
-    
-    collections.forEach(collection => {
-        var images = collection.childNodes[3];
-
-        fetch(collection.dataset.icons)
-        .then(response => response.json())
-        .then(data => {
-            data.forEach(img => {
-                var icon = document.createElement('div');
-                icon.style.backgroundImage = 'url(' + img.url + ')';
-                images.appendChild(icon);
-            });
-        });
-
-        collection.addEventListener('click', function (e) {
-            window.location = this.dataset.url;
-        });
-    });
-
-    
-</script>
+<script src="{% static 'js/collection.js' %}"></script>
 {% endblock %}
