@@ -1,0 +1,29 @@
+{% extends "gallery/base.html" %}
+
+{% block content %}
+<button id="back-btn">Back to Archive</button>
+<h2 class="title">{{ year|date:"Y" }}</h2>
+<ul class="archive-list">
+    {% for date in date_list %}
+    <li><a href="{% url 'archive-month' date|date:'Y' date|date:'M' %}">{{ date|date:"M Y" }}</a></li>
+    {% endfor %}
+</ul>
+
+<div class="gallery" id="gallery">
+    {% for photo in page_obj %}
+    <div class="gallery-item" data-url="{% url 'viewer' photo.pk %}">
+        <img src="{{ photo.imageUrl }}" alt="">
+    </div>
+    {% endfor %}
+</div>
+
+{% include "gallery/pagination.html" %}
+
+<script>
+    var backBtn = document.getElementById('back-btn');
+
+    backBtn.addEventListener('click', function(e) {
+        window.location = "{% url 'archive' %}";
+    });
+</script>
+{% endblock %}

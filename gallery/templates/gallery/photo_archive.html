@@ -1,0 +1,19 @@
+{% extends "gallery/base.html" %}
+{% load static %}
+
+{% block content %}
+<h2 class="title">Archive</h2>
+
+<div class="collection-wrapper">
+    {% for date in date_list %}
+    <div class="collection" data-url="{% url 'archive-year' date|date:'Y' %}" data-icons="{% url 'archive-preview' date|date:'Y' %}">
+        <h2 class="collection-title">{{ date|date:"Y" }}</h2>
+        <div class="images"></div>
+    </div>
+    {% endfor %}
+</div>
+
+{% include "gallery/pagination.html" %}
+
+<script src="{% static 'js/collection.js' %}"></script>
+{% endblock %}

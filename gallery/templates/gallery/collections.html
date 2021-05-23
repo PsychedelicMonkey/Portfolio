@@ -1,0 +1,17 @@
+{% extends "gallery/base.html" %}
+{% load static %}
+
+{% block content %}
+<h1 class="title">Collections</h1>
+<div class="collection-wrapper">
+    {% for collection in collections %}
+    <div class="collection" data-url="{% url 'collection-detail' collection.pk %}" data-icons="{% url 'collection-preview' collection.pk %}">
+        <h2 class="collection-title">{{ collection.title }}</h2>
+        <div class="images"></div>
+    </div>
+    {% endfor %}
+</div>
+{% include "gallery/pagination.html" %}
+
+<script src="{% static 'js/collection.js' %}"></script>
+{% endblock %}

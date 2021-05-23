@@ -1,0 +1,53 @@
+{% extends "gallery/base.html" %}
+
+{% block content %}
+<div class="wrapper">
+    <img class="profile-image" src="{{ user.profile.imageUrl }}" alt="">
+    <h1 class="profile-name">{{ user.first_name }} {{ user.last_name }}</h1>
+
+    <div class="desc">
+        {{ user.profile.biography|linebreaks }}
+    </div>
+
+    <div class="social-wrapper">
+        <h2 class="heading">Follow me on...</h2>
+        {% include "user/social_links.html" %}
+    </div>
+
+    <div class="form-wrapper">
+        <h2 class="heading">Get in touch</h2>
+        <form action="#" method="post">
+            {% csrf_token %}
+
+            <div class="form-field half">
+                {{ form.full_name }}
+            </div>
+            <div class="form-field half">
+                {{ form.email }}
+            </div>
+            <div class="form-field">
+                {{ form.subject }}
+            </div>
+            <div class="form-field">
+                {{ form.body }}
+            </div>
+            <div class="form-actions">
+                <input type="submit" name="submit" value="Submit">
+                <button id="btn-clear-form">Clear</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    var clearBtn = document.getElementById('btn-clear-form');
+
+    clearBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('subject').value = '';
+        document.getElementById('message').value = '';
+    });
+</script>
+{% endblock %}
