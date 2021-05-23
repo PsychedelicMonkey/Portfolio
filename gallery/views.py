@@ -61,6 +61,9 @@ class ArchiveYear(YearArchiveView):
     date_field = 'created'
     make_object_list = True
     allow_future = True
+    extra_context = {
+        'page': 'archives'
+    }
 
 class ArchiveMonth(MonthArchiveView):
     queryset = Photo.objects.all()
