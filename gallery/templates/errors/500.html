@@ -1,0 +1,9 @@
+{% extends "gallery/base.html" %}
+
+{% block content %}
+<h2 class="title" style="padding-bottom: 22px; border-bottom: 1px solid var(--grey1);">Unknown Error (500)</h2>
+<div style="margin: 22px auto; text-align: center;">
+    <p>It Appears an unknown error has occurred.</p>
+    <p style="padding-top: 24px;"><a href="{% url 'index' %}">Click here to go back to the home page.</a></p>
+</div>
+{% endblock %}

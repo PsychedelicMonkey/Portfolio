@@ -24,5 +24,7 @@ urlpatterns = [
     path('', include('user.urls')),
 ]
 
+handler404 = 'gallery.views.error_404'
+
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -7,6 +7,12 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.dates import YearArchiveView, MonthArchiveView, ArchiveIndexView
 from .models import Photo, Collection
 
+def error_404(request, exception):
+    return render(request, 'errors/404.html')
+
+def error_500(request, exception):
+    return render(request, 'errors/500.html')
+
 def viewer(request, pk):
     photo = get_object_or_404(Photo, pk=pk)
     return JsonResponse({'url': photo.imageUrl})
