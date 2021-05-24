@@ -1,3 +1,4 @@
+from PIL import Image
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -16,6 +17,17 @@ class Profile(models.Model):
         except:
             img = ''
         return img
+
+    def save(self, *args, **kwargs):
+        super(Profile, self).save(*args, **kwargs)
+
+        if self.image:
+            img = Image.open(self.image.path)
+
+            if img.height > 400 or img.height > 400:
+                output_size = (400, 400)
+                img.thumbnail(output_size, Image.ANTIALIAS)
+                img.save(self.image.path)
 
 class SocialMediaUrl(models.Model):
     CHOICES = (
